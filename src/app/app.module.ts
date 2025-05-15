@@ -17,9 +17,11 @@ import { AppAngularMaterialModule } from './shared/app-angular-material/app-angu
     AppRoutingModule,
     MenuComponent,
     BrowserAnimationsModule,
-    AppAngularMaterialModule
+
 ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

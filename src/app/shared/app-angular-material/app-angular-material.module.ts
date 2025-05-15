@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
+
 import localePtBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import {MatNativeDateModule, MAT_DATE_FORMATS} from '@angular/material/core';
@@ -29,6 +30,8 @@ import { parse } from 'path';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
+import { MenuComponent } from 'src/app/menu/menu.component';
+import { AppModule } from 'src/app/app.module';
 
 registerLocaleData(localePtBr);
 
@@ -46,7 +49,9 @@ const MY_DATE_FORMAT = {
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -69,12 +74,14 @@ const MY_DATE_FORMAT = {
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-
+    MenuComponent
   ],
   providers: [
-  { provide: LOCALE_ID, useValue: 'pt-br' },
-  { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-  { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
-]
+    { provide: LOCALE_ID, useValue: 'pt-br' },
+    { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
+    AppAngularMaterialModule
+  ],
+  exports: []
 })
 export class AppAngularMaterialModule { }
