@@ -5,4 +5,19 @@ mat-sidenav-container {
 
 mat-sidenav {
   width: 12%;
+  background-color: #424242;
+  color: #fff;
+}
+
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  margin-bottom: 24px;
 }

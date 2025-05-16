@@ -32,6 +32,21 @@ const routes: Routes = [
         loadComponent: () => import('./titulos/detalhes-titulo/detalhes-titulo.component').then(c => c.DetalhesTituloComponent)
       }
     ]
+  },
+
+  {
+    path: 'fornecedores',
+    children: [
+      {
+        path: 'lista-fornecedores',
+        loadComponent: () => import('./fornecedores/lista-fornecedores/lista-fornecedores.component').then(c => c.ListaFornecedoresComponent)
+      },
+
+      {
+        path: 'novo-fornecedor',
+        loadComponent: () => import('./fornecedores/novo-fornecedor/novo-fornecedor.component').then(c => c.NovoFornecedorComponent)
+      }
+    ]
   }
 ];
 

@@ -20,9 +20,12 @@ export class MenuTreeComponent implements OnInit {
     this.dataSource.data = TREE_DATA;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.treeControl.expand(this.dataSource.data[0])
+  }
 
   recolher(menu: Menus) {
+    console.log(this.treeControl)
     if(this.treeControl.isExpanded(menu)) {
       this.treeControl.collapseAll()
       this.treeControl.expand(menu)
@@ -49,18 +52,18 @@ const TREE_DATA: Menus[] = [
   {
     menu: 'Fornecedores',
     rota: '',
-    children: [{ menu: 'Lista de fornecedores', rota: '/lista-fornecedores' }, { menu: 'Novo fornecedor', rota: '/novo-fornecedor' }],
+    children: [{ menu: 'Lista de fornecedores', rota: 'fornecedores/lista-fornecedores' }, { menu: 'Novo fornecedor', rota: 'fornecedores/novo-fornecedor' }],
   },
 
   {
     menu: 'Itens do Fornecedor',
     rota: '',
-    children: [{ menu: 'Lista de itens', rota: '/lista-itens' }, { menu: 'Novo item', rota: '/novo-item' }],
+    children: [{ menu: 'Lista de itens', rota: 'item-fornecedor/lista-itens' }, { menu: 'Novo item', rota: 'item-fornecedor/novo-item' }],
   },
 
   {
-    menu: 'Contas Fluxo',
+    menu: 'Conta Fluxo',
     rota: '',
-    children: [{menu: 'Lista de contas', rota: '/lista-contas'}, {menu: 'Nova conta', rota: '/nova-conta'}],
+    children: [{menu: 'Lista de contas', rota: 'conta-fluxo/lista-contas'}, {menu: 'Nova conta', rota: 'conta-fluxo/nova-conta'}],
   },
 ];
