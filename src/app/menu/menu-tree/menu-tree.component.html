@@ -11,7 +11,7 @@
   <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
     <div class="mat-tree-node">
       <mat-nav-list class="nav-list" >
-        <a mat-list-item  matTreeNodeToggle (click)="recolher(node)" routerLinkActive="active" [ngClass]="{'active': treeControl.isExpanded(node)}">
+        <a mat-list-item  matTreeNodeToggle (click)="recolher(node)" routerLinkActive="active" class="menu-principal" [ngClass]="{'active': treeControl.isExpanded(node)}">
           <span>{{node.menu}}</span>
           <mat-icon class="icon">
             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}

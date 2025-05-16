@@ -1,6 +1,11 @@
 .example-tree-invisible {
   display: none;
+  transition: 500ms;
 
+}
+
+[matTreeNodeOutlet] {
+  transition: 500ms;
 }
 
 .example-tree ul,
@@ -58,14 +63,13 @@ span.node-menu {
 }
 
 .nav-list a.active:active,
-.nav-list a.active:focus
- {
+.nav-list a.active:focus {
   color: #7fc9ff;
   font-weight: 500;
   background-color: #444444;
 }
 
-.nav-list a.active:hover {
+.nav-list a.menu-principal:hover {
   background-color: #555555;
   color: #7fc9ff;
   font-weight: 500;
