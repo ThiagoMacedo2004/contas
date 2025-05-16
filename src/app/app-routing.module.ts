@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'titulos/tabela-titulos',
+    redirectTo: 'titulos/lista-titulos',
     pathMatch: 'full',
   },
 
@@ -13,12 +13,12 @@ const routes: Routes = [
     loadComponent: () => import('./titulos/titulos.component').then(c => c.TitulosComponent),
     children: [
       {
-        path: 'tabela-titulos',
+        path: 'lista-titulos',
         loadComponent: () => import('./titulos/tabela-titulos/tabela-titulos.component').then(c => c.TabelaTitulosComponent)
       },
 
       {
-        path: 'cadastrar-novo-titulo',
+        path: 'novo-titulo',
         loadComponent: () => import('./titulos/cadastrar-novo-titulo/cadastrar-novo-titulo.component').then(c => c.CadastrarNovoTituloComponent)
       },
 

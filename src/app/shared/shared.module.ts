@@ -19,7 +19,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 
 
 
@@ -74,14 +74,36 @@ const MY_DATE_FORMAT = {
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    MenuComponent
+    RouterModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
-    AppAngularMaterialModule
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
   ],
-  exports: []
+  exports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule
+  ]
 })
-export class AppAngularMaterialModule { }
+export class SharedModule { }

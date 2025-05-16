@@ -5,11 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppAngularMaterialModule } from './shared/app-angular-material/app-angular-material.module';
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
 
   ],
   imports: [
@@ -18,7 +19,7 @@ import { AppAngularMaterialModule } from './shared/app-angular-material/app-angu
     MenuComponent,
     BrowserAnimationsModule,
 
-],
+  ],
   providers: [
 
   ],
