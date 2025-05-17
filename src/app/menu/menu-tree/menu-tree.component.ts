@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -13,19 +13,22 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
   styleUrls: ['./menu-tree.component.css'],
 })
 export class MenuTreeComponent implements OnInit {
-  treeControl = new NestedTreeControl<Menus>((node) => node.children);
+  treeControl = new NestedTreeControl<Menus, any>((node) => node.children);
   dataSource = new MatTreeNestedDataSource<Menus>();
 
-  constructor() {
+  @Output() titulo = new EventEmitter()
+
+  constructor(){
     this.dataSource.data = TREE_DATA;
   }
 
   ngOnInit(): void {
     this.treeControl.expand(this.dataSource.data[0])
+    // this.titulo.emit(this.dataSource.data.)
   }
 
-  recolher(menu: Menus) {
-    console.log(this.treeControl)
+  recolher(menu: Menus | any) {
+    this.titulo.emit(menu.children[0].menu)
     if(this.treeControl.isExpanded(menu)) {
       this.treeControl.collapseAll()
       this.treeControl.expand(menu)
@@ -67,3 +70,5 @@ const TREE_DATA: Menus[] = [
     children: [{menu: 'Lista de contas', rota: 'conta-fluxo/lista-contas'}, {menu: 'Nova conta', rota: 'conta-fluxo/nova-conta'}],
   },
 ];
+
+

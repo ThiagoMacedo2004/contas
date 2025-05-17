@@ -4,7 +4,9 @@
     This padding value depends on the mat-icon-button width. -->
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
     <mat-nav-list class="nav-list" >
-      <a mat-list-item [routerLink]="node.rota" routerLinkActive="active-children" class="children-node"><span class="node-menu">{{ node.menu }}</span></a>
+      <a mat-list-item [routerLink]="node.rota" routerLinkActive="active-children" class="children-node">
+        <span class="node-menu">{{ node.menu }}</span>
+      </a>
     </mat-nav-list>
   </mat-tree-node>
   <!-- This is the tree node template for expandable nodes -->

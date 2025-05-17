@@ -1,1 +1,85 @@
-<p>cadastrar-novo-titulo works!</p>
+<div class="titulo">
+  <mat-icon>post_add</mat-icon>
+  <h2>Cadastrar novo título</h2>
+</div>
+
+<!-- <mat-divider></mat-divider> -->
+
+<h3>Informe os dados do título</h3>
+<!--
+<form>
+  <mat-form-field appearance="outline">
+    <mat-label>Empresa</mat-label>
+    <mat-select>
+      <mat-option value="one">--Selecione--</mat-option>
+      <mat-option value="one">JORDANESIA</mat-option>
+      <mat-option value="two">LP ADM</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Fornecedor</mat-label>
+    <input matInput>
+    <mat-hint>Codigo Fornecedo: 123456789</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Item do Fornecedor</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>NF</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Emissão</mat-label>
+    <input matInput [matDatepicker]="picker" [textMask]="mask" placeholder="DD/MM/AAAA">
+
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Vencimento</mat-label>
+    <input matInput [matDatepicker]="picker2" [textMask]="mask" placeholder="DD/MM/AAAA">
+
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Conta Fluxo</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+    <mat-form-field appearance="outline">
+    <mat-label>Valor</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+</form> -->
+
+<mat-stepper orientation="vertical">
+  <mat-step>
+    <ng-template matStepLabel>Informe os dados da NF</ng-template>
+    <ng-template matStepContent>
+      <p>This content was rendered lazily</p>
+      <button mat-button matStepperNext>Next</button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Informe dados de pagamento</ng-template>
+    <ng-template matStepContent>
+      <p>This content was also rendered lazily</p>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Step 3</ng-template>
+    <p>This content was rendered eagerly</p>
+    <button mat-button matStepperPrevious>Back</button>
+  </mat-step>
+</mat-stepper>

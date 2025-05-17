@@ -49,12 +49,18 @@
 }
 
 
+
+
 span.node-menu {
   width: 100%;
   display: inline-block;
   /* text-align: center; */
   padding-left: 33px;
 }
+
+
+
+
 
 .nav-list a.active {
   color: #7fc9ff;
@@ -79,6 +85,7 @@ span.node-menu {
 .nav-list a.children-node:hover {
   color: #7fc9ff;
   font-weight: 500;
+
 }
 
 .nav-list a.active-children:active,

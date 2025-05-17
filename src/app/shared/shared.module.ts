@@ -20,7 +20,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { TextMaskModule } from 'angular2-text-mask';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 import localePtBr from '@angular/common/locales/pt';
@@ -74,7 +75,9 @@ const MY_DATE_FORMAT = {
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    TextMaskModule,
+    MatStepperModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },
@@ -103,7 +106,9 @@ const MY_DATE_FORMAT = {
     MatTreeModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    TextMaskModule,
+    MatStepperModule
   ]
 })
 export class SharedModule { }

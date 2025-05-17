@@ -1,15 +1,7 @@
-mat-toolbar {
-  background-color: #424242;
-  color: #fff;
-}
-
-.example-spacer {
-  flex: 1 1 auto;
-}
-
 mat-sidenav-container {
   width: 100%;
   height: 100vh;
+  background-color: #fff;
 }
 
 mat-sidenav {
@@ -18,13 +10,16 @@ mat-sidenav {
   color: #fff;
 }
 
-
-
-
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 64px;
   margin-bottom: 24px;
+}
+
+.content {
+  background-color: #fff;
+  padding: 16px;
+  height: calc(100vh - 64px);
 }
