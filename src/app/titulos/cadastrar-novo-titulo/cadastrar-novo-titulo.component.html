@@ -61,25 +61,42 @@
 
 </form> -->
 
-<mat-stepper orientation="vertical">
-  <mat-step>
-    <ng-template matStepLabel>Informe os dados da NF</ng-template>
-    <ng-template matStepContent>
-      <p>This content was rendered lazily</p>
-      <button mat-button matStepperNext>Next</button>
-    </ng-template>
+
+<mat-stepper orientation="vertical" #stepper>
+  <mat-step [stepControl]="formFornecedor" errorMessage="Preencha todos os dados do Fornecedor !">
+    <form [formGroup]="formFornecedor">
+      <ng-template matStepLabel>Informe os dados do Fornecedor</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="EMPRESA">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="formDadosPagamento" errorMessage="Address is required.">
+    <form [formGroup]="formDadosPagamento">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="CONTA_FLUXO"
+               required>
+      </mat-form-field>
+      <div>
+        <p>Go to a different step to see the error state</p>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Informe dados de pagamento</ng-template>
-    <ng-template matStepContent>
-      <p>This content was also rendered lazily</p>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </ng-template>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Step 3</ng-template>
-    <p>This content was rendered eagerly</p>
-    <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
   </mat-step>
 </mat-stepper>
+
