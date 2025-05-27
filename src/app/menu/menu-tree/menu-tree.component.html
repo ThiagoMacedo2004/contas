@@ -1,6 +1,6 @@
 <mat-nav-list>
   <mat-list-item *ngFor="let link of links">
-    <a mat-list-item routerLinkActive="active" routerLink="{{ link.router }}">
+    <a mat-list-item routerLinkActive="active, mat-elevation-z8" routerLink="{{ link.router }}" >
       <mat-icon>{{ link.icon }}</mat-icon>
       <span>{{ link.titulo }}</span>
     </a>
