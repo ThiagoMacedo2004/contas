@@ -14,5 +14,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-list-item-content {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+div.mat-vertical-content {
+  padding: 24px;
 }

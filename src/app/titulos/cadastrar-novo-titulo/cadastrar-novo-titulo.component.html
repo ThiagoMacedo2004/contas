@@ -1,102 +1,93 @@
-<div class="titulo">
-  <mat-icon>post_add</mat-icon>
-  <h2>Cadastrar novo título</h2>
-</div>
-
 <!-- <mat-divider></mat-divider> -->
 
-<h3>Informe os dados do título</h3>
-<!--
 <form>
-  <mat-form-field appearance="outline">
-    <mat-label>Empresa</mat-label>
-    <mat-select>
-      <mat-option value="one">--Selecione--</mat-option>
-      <mat-option value="one">JORDANESIA</mat-option>
-      <mat-option value="two">LP ADM</mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title class="titulo">
+        <mat-icon>post_add</mat-icon>
+        Cadastrar Título
+      </mat-card-title>
+      <mat-card-subtitle>Informe os dados da NF / Título</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <mat-form-field appearance="outline" class="datasul">
+          <mat-label>Datasul</mat-label>
+          <mat-select #datasul>
+            <mat-option value="">--Selecione--</mat-option>
+            <mat-option value="one">JORDANESIA</mat-option>
+            <mat-option value="two">LP ADM</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Fornecedor</mat-label>
-    <input matInput>
-    <mat-hint>Codigo Fornecedo: 123456789</mat-hint>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Item do Fornecedor</mat-label>
-    <input matInput>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>NF</mat-label>
-    <input matInput>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Emissão</mat-label>
-    <input matInput [matDatepicker]="picker" [textMask]="mask" placeholder="DD/MM/AAAA">
-
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Vencimento</mat-label>
-    <input matInput [matDatepicker]="picker2" [textMask]="mask" placeholder="DD/MM/AAAA">
-
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Conta Fluxo</mat-label>
-    <input matInput>
-  </mat-form-field>
-
-    <mat-form-field appearance="outline">
-    <mat-label>Valor</mat-label>
-    <input matInput>
-  </mat-form-field>
-
-</form> -->
-
-
-<mat-stepper orientation="vertical" #stepper>
-  <mat-step [stepControl]="formFornecedor" errorMessage="Preencha todos os dados do Fornecedor !">
-    <form [formGroup]="formFornecedor">
-      <ng-template matStepLabel>Informe os dados do Fornecedor</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="EMPRESA">
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button (click)="btnFornecedor = !btnFornecedor" [disabled]="!datasul.value">
+          {{(!datasul.value) ? 'Selecionar Datasul' : 'Selecionar Fornecedor'}}
+        </button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="formDadosPagamento" errorMessage="Address is required.">
-    <form [formGroup]="formDadosPagamento">
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="CONTA_FLUXO"
-               required>
-      </mat-form-field>
-      <div>
-        <p>Go to a different step to see the error state</p>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>
 
+      <div class="row">
+        <mat-form-field appearance="outline" *ngIf="btnFornecedor" class="fornecedor">
+          <mat-label>Fornecedor</mat-label>
+          <input matInput disabled>
+          <mat-hint>
+            <button mat-button color="warn" (click)="btnFornecedor = false" style="scale: 0.8;">Apagar</button>
+          </mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" *ngIf="btnFornecedor">
+          <mat-label>Código Fornecedor</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+
+        <button mat-button (click)="btnItem = !btnItem" *ngIf="!btnItem">
+          Selecione o Fornecedor
+        </button>
+
+        <mat-form-field appearance="outline" *ngIf="btnItem">
+          <mat-label>Item do Fornecedor</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>NF</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Emissão</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="DD/MM/AAAA">
+
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Vencimento</mat-label>
+          <input matInput [matDatepicker]="picker2" placeholder="DD/MM/AAAA">
+
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+      <!-- <mat-form-field appearance="outline">
+        <mat-label>Conta Fluxo</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Valor</mat-label>
+        <input matInput>
+      </mat-form-field> -->
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-button (click)="[btnFornecedor = false, btnItem = false]">LIMPAR</button>
+
+    </mat-card-actions>
+  </mat-card>
+
+</form>

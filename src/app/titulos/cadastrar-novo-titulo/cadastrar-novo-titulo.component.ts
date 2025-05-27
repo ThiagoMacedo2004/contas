@@ -28,7 +28,8 @@ export class CadastrarNovoTituloComponent implements OnInit {
   formFornecedor!: UntypedFormGroup
   formDadosPagamento!: UntypedFormGroup
 
-  public myModel = ''
+  btnFornecedor: boolean = false
+  btnItem: boolean = false
 
   constructor(
     private _fb: FormBuilder,

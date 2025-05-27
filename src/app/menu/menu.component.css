@@ -5,7 +5,7 @@ mat-sidenav-container {
 }
 
 mat-sidenav {
-  width: 12%;
+  width: 17%;
   background-color: #424242;
   color: #fff;
 }
@@ -19,7 +19,7 @@ mat-sidenav {
 }
 
 .content {
-  background-color: #fff;
-  padding: 16px;
+  background-color: #f8fafd;
+  padding: 20px;
   height: calc(100vh - 64px);
 }

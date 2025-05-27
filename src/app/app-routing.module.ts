@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'titulos/lista-titulos',
+    redirectTo: 'titulos',
     pathMatch: 'full',
   },
 
@@ -12,11 +12,6 @@ const routes: Routes = [
     path: 'titulos',
     loadComponent: () => import('./titulos/titulos.component').then(c => c.TitulosComponent),
     children: [
-      {
-        path: 'lista-titulos',
-        loadComponent: () => import('./titulos/tabela-titulos/tabela-titulos.component').then(c => c.TabelaTitulosComponent)
-      },
-
       {
         path: 'novo-titulo',
         loadComponent: () => import('./titulos/cadastrar-novo-titulo/cadastrar-novo-titulo.component').then(c => c.CadastrarNovoTituloComponent)
@@ -36,18 +31,16 @@ const routes: Routes = [
 
   {
     path: 'fornecedores',
+    loadComponent: () => import('./fornecedores/fornecedores.component').then(c => c.FornecedoresComponent),
     children: [
-      {
-        path: 'lista-fornecedores',
-        loadComponent: () => import('./fornecedores/lista-fornecedores/lista-fornecedores.component').then(c => c.ListaFornecedoresComponent)
-      },
-
       {
         path: 'novo-fornecedor',
         loadComponent: () => import('./fornecedores/novo-fornecedor/novo-fornecedor.component').then(c => c.NovoFornecedorComponent)
       }
     ]
-  }
+  },
+
+  {path: '**', redirectTo: 'titulos', pathMatch: 'full'}
 ];
 
 @NgModule({
