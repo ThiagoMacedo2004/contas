@@ -1,19 +1,28 @@
-.titulo {
+mat-card-header {
+  margin-bottom: 18px;
+}
+
+mat-card-header div.titulo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
-.titulo > span {
+mat-card-header div.titulo > span {
   color: #0154a0;
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-.titulo a {
+mat-card-header div.titulo a {
   color: #555;
 }
 
 a mat-icon {
   margin-right: 8px;
+}
+
+table {
+  width: 100%;
 }
