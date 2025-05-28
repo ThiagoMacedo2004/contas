@@ -1,0 +1,19 @@
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titulo > span {
+  color: #0154a0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.titulo a {
+  color: #555;
+}
+
+a mat-icon {
+  margin-right: 8px;
+}

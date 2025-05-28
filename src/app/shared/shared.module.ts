@@ -31,12 +31,7 @@ import { parse } from 'path';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
-import { MenuComponent } from 'src/app/menu/menu.component';
-import { AppModule } from 'src/app/app.module';
-import { TabelaTitulosComponent } from '../titulos/tabela-titulos/tabela-titulos.component';
-import { ListaFornecedoresComponent } from '../fornecedores/lista-fornecedores/lista-fornecedores.component';
-import { MenuTreeComponent } from '../menu/menu-tree/menu-tree.component';
-import { MenuToolbarComponent } from '../menu/menu-tree/menu-toolbar/menu-toolbar.component';
+
 
 registerLocaleData(localePtBr);
 
