@@ -1,27 +1,44 @@
-mat-card-header {
-  margin-bottom: 18px;
-}
-
-mat-card-header div.titulo {
+.titulo-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+
+.titulo-container a {
+  color: #555;
+  font-size: 1.0rem;
+}
+
+.titulo-container a mat-icon {
+  margin-right: 8px;
+}
+
+div.titulo-card {
+  margin-bottom: 18px;
+}
+
+
+div.titulo-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
 }
 
-mat-card-header div.titulo > span {
+div.titulo-card>span {
   color: #0154a0;
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-mat-card-header div.titulo a {
-  color: #555;
+div.titulo-card>mat-icon {
+  color: #0154a0;
+
 }
 
-a mat-icon {
-  margin-right: 8px;
-}
 
 table {
   width: 100%;

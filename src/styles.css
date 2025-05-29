@@ -21,3 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 div.mat-vertical-content {
   padding: 24px;
 }
+
+span.mat-checkbox-frame {
+  border-width: 1px;
+}

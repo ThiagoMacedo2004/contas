@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { Dialog } from '@angular/cdk/dialog';
+import { NovoFornecedorComponent } from '../novo-fornecedor/novo-fornecedor.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-lista-fornecedores',
@@ -13,13 +16,21 @@ import { SelectionModel } from '@angular/cdk/collections';
 })
 export class ListaFornecedoresComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'RAZAO', 'CNPJ'];
+  displayedColumns: string[] = ['select', 'RAZAO', 'CNPJ', 'ACAO'];
   dataSource = new MatTableDataSource<Fornecedores>(FORNECEDOR_DATA);
   selection = new SelectionModel<Fornecedores>(true, []);
 
-  constructor() { }
+  constructor(
+    private _dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  dialogNovoFornecedor() {
+    this._dialog.open(NovoFornecedorComponent, {
+      width: '50%'
+    })
   }
 
    isAllSelected() {

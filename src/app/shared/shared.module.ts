@@ -76,7 +76,8 @@ const MY_DATE_FORMAT = {
     ReactiveFormsModule,
     RouterModule,
     TextMaskModule,
-    MatStepperModule
+    MatStepperModule,
+
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-br' },

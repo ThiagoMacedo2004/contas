@@ -14,12 +14,15 @@ mat-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
-  margin-bottom: 24px;
+  height: 16%;
+}
+
+.logo img {
+  width: 60%;
 }
 
 .content {
-  background-color: #f8fafd;
+  background-color: #f3f3f3;
   padding: 20px;
-  height: calc(100vh - 64px);
+  height: 100vh;
 }
