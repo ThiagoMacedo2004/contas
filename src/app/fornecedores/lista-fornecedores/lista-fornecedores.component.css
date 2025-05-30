@@ -6,10 +6,9 @@
   margin-bottom: 24px;
 }
 
-
 .titulo-container a {
   color: #555;
-  font-size: 1.0rem;
+  font-size: 1rem;
 }
 
 .titulo-container a mat-icon {
@@ -20,7 +19,6 @@ div.titulo-card {
   margin-bottom: 18px;
 }
 
-
 div.titulo-card {
   display: flex;
   align-items: center;
@@ -28,17 +26,20 @@ div.titulo-card {
   width: 100%;
 }
 
-div.titulo-card>span {
+div.titulo-card > span {
   color: #0154a0;
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-div.titulo-card>mat-icon {
+div.titulo-card > mat-icon {
   color: #0154a0;
-
 }
 
+.tabela {
+  max-height: calc(100vh - 170px);
+  overflow: auto;
+}
 
 table {
   width: 100%;
