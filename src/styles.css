@@ -25,3 +25,24 @@ div.mat-vertical-content {
 span.mat-checkbox-frame {
   border-width: 1px;
 }
+
+th span.mat-checkbox-frame {
+  border-color: #fff;
+}
+
+
+
+tr[mat-header-row] {
+  /* background-color: rgba(1, 84, 160, 0.7); */
+  background-color: rgba(66, 66, 66, 0.9);
+  /* height: 40px; */
+}
+
+tr[mat-header-row].mat-header-row {
+  height: 42px;
+}
+
+tr[mat-header-row] th {
+  color: #fff;
+
+}

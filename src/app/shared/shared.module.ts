@@ -31,6 +31,7 @@ import { parse } from 'path';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
+import { HttpClientModule } from '@angular/common/http';
 
 
 registerLocaleData(localePtBr);
@@ -77,6 +78,7 @@ const MY_DATE_FORMAT = {
     RouterModule,
     TextMaskModule,
     MatStepperModule,
+    HttpClientModule
 
   ],
   providers: [
@@ -108,7 +110,8 @@ const MY_DATE_FORMAT = {
     ReactiveFormsModule,
     RouterModule,
     TextMaskModule,
-    MatStepperModule
+    MatStepperModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

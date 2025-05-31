@@ -8,7 +8,7 @@ a mat-icon {
 }
 
 mat-nav-list a:hover {
-  background: rgb(1, 84, 160, 0.4);
+  background: rgb(1, 84, 160, 0.5);
   border-radius: 4px;
 }
 

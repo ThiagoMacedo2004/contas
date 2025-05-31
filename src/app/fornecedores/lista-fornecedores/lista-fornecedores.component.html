@@ -1,6 +1,6 @@
 <div class="titulo-container">
 
-  <button mat-button (click)="dialogNovoFornecedor()">
+  <button class="btn-novo-fornecedor" mat-button (click)="dialogNovoFornecedor()">
     <mat-icon class="mat-18">add_business</mat-icon>
     <span>Novo Fornecedor</span>
   </button>
@@ -9,8 +9,15 @@
 <mat-card>
 
   <div class="titulo-card">
-    <mat-icon>list</mat-icon>
-    <span>Lista de Fornecedores</span>
+    <div>
+      <mat-icon>list</mat-icon>
+      <span>Lista de Fornecedores</span>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Pesquisar Fornecedor</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
   </div>
 
   <mat-card-content>
@@ -20,7 +27,7 @@
         <!-- Checkbox Column -->
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox color="primary" (change)="$event ? toggleAllRows() : null"
+            <mat-checkbox class="check" color="primary" (change)="$event ? toggleAllRows() : null"
               [checked]="selection.hasValue() && isAllSelected()"
               [indeterminate]="selection.hasValue() && !isAllSelected()">
             </mat-checkbox>
@@ -54,8 +61,12 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns; ">
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" [attr.colspan]=displayedColumns.length>Nenhum fornecedor encontrado com o valor: <strong>"{{input.value}}"</strong></td>
         </tr>
+
       </table>
     </div>
 

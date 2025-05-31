@@ -16,7 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ListaFornecedoresComponent implements OnInit {
 
-  displayedColumns: string[] = ['select', 'RAZAO', 'CNPJ', 'ACAO'];
+  displayedColumns: any[] = ['select', 'RAZAO', 'CNPJ', 'ACAO'];
   dataSource = new MatTableDataSource<Fornecedores>(FORNECEDOR_DATA);
   selection = new SelectionModel<Fornecedores>(true, []);
 
@@ -47,6 +47,11 @@ export class ListaFornecedoresComponent implements OnInit {
     }
 
     this.selection.select(...this.dataSource.data);
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 

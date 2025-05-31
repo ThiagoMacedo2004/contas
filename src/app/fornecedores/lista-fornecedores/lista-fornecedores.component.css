@@ -1,3 +1,13 @@
+.btn-novo-fornecedor {
+  font-size: 1rem;
+  background-color: rgba(1, 84, 160, 0.8) !important;
+  color: #FFF;
+}
+
+.btn-novo-fornecedor mat-icon {
+  margin-right: 10px;
+}
+
 .titulo-container {
   display: flex;
   align-items: center;
@@ -6,34 +16,37 @@
   margin-bottom: 24px;
 }
 
-.titulo-container a {
-  color: #555;
-  font-size: 1rem;
-}
 
-.titulo-container a mat-icon {
-  margin-right: 8px;
-}
 
 div.titulo-card {
   margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-div.titulo-card {
+div.titulo-card>div {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
+  /* width: 100%; */
 }
 
-div.titulo-card > span {
-  color: #0154a0;
+div.titulo-card>div>span {
+  color: rgba(66, 66, 66, 0.9);
   font-size: 1.2rem;
   font-weight: 500;
 }
 
-div.titulo-card > mat-icon {
-  color: #0154a0;
+div.titulo-card>div>mat-icon {
+  color: rgba(66, 66, 66, 0.9);
+  scale: 1.2;
+}
+
+div .mat-form-field {
+  width: 32%;
+  font-size: 0.8rem;
+
 }
 
 .tabela {
@@ -43,4 +56,9 @@ div.titulo-card > mat-icon {
 
 table {
   width: 100%;
+}
+
+span.mat-checkbox-frame {
+  background-color: #FFF !important;
+
 }
