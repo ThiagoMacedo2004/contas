@@ -6,6 +6,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Dialog } from '@angular/cdk/dialog';
 import { NovoFornecedorComponent } from '../novo-fornecedor/novo-fornecedor.component';
 import { MatDialog } from '@angular/material/dialog';
+import { FornecedoresServicesService } from '../fornecedores-services.service';
 
 @Component({
   selector: 'app-lista-fornecedores',
@@ -17,20 +18,28 @@ import { MatDialog } from '@angular/material/dialog';
 export class ListaFornecedoresComponent implements OnInit {
 
   displayedColumns: any[] = ['select', 'RAZAO', 'CNPJ', 'ACAO'];
-  dataSource = new MatTableDataSource<Fornecedores>(FORNECEDOR_DATA);
+  dataSource = new MatTableDataSource<Fornecedores>();
   selection = new SelectionModel<Fornecedores>(true, []);
 
   constructor(
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _service: FornecedoresServicesService
   ) { }
 
   ngOnInit(): void {
+    this.dataSource.data = this._service.fornecedores
   }
 
   dialogNovoFornecedor() {
     this._dialog.open(NovoFornecedorComponent, {
       width: '50%'
-    })
+    }).afterClosed().subscribe(
+      (result: Fornecedores[]) => {
+        if(result) {
+          this.dataSource.data = result
+        }
+      }
+    )
   }
 
    isAllSelected() {
@@ -58,19 +67,6 @@ export class ListaFornecedoresComponent implements OnInit {
 }
 
 export interface Fornecedores {
-  RAZAO: string;
-  CNPJ: string;
+  tipoFornecedor: string;
+  razao: string;
 }
-
-const FORNECEDOR_DATA: Fornecedores[] = [
-  {RAZAO: 'Hydrogen', CNPJ: '1.0079'},
-  {RAZAO: 'Helium', CNPJ: '4.0026'},
-  {RAZAO: 'Lithium', CNPJ: '6.941'},
-  {RAZAO: 'Beryllium', CNPJ: '9.0122'},
-  {RAZAO: 'Boron', CNPJ: '10.811'},
-  {RAZAO: 'Carbon', CNPJ: '12.0107'},
-  {RAZAO: 'Nitrogen', CNPJ: '14.0067'},
-  {RAZAO: 'Oxygen', CNPJ: '15.9994'},
-  {RAZAO: 'Fluorine', CNPJ: '18.9984'},
-  {RAZAO: 'Neon', CNPJ: '20.1797'},
-];
