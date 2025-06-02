@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TextMaskModule } from 'angular2-text-mask';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import localePtBr from '@angular/common/locales/pt';
@@ -78,7 +79,8 @@ const MY_DATE_FORMAT = {
     RouterModule,
     TextMaskModule,
     MatStepperModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule
 
   ],
   providers: [
@@ -111,7 +113,8 @@ const MY_DATE_FORMAT = {
     RouterModule,
     TextMaskModule,
     MatStepperModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule
   ]
 })
 export class SharedModule { }

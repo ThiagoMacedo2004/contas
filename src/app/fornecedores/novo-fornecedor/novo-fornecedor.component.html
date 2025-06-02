@@ -2,6 +2,11 @@
 <mat-dialog-content class="mat-typography">
   <p>Informe os dados do novo Fornecedor</p>
 
+  <mat-radio-group color="primary" >
+    <mat-radio-button value="1" checked>CNPJ</mat-radio-button>
+    <mat-radio-button value="2">CPF</mat-radio-button>
+  </mat-radio-group>
+
   <form class="formulario" [formGroup]="formGroup" (ngSubmit)="salvarFornecedor()">
     <div class="inputs">
       <mat-form-field class="razao-social" appearance="fill">
