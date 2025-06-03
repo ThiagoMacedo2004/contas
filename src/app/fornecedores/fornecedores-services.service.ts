@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SnackBarComponent } from '../shared/snack-bar/snack-bar.component';
+import { first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FornecedoresServicesService {
-  private BASE_PATH = 'http://www.contas.com.br/fornecedores';
+  private BASE_PATH = 'http://www.contas.com.br/contas/src/controller/Fornecedores.php';
 
   fornecedores: any = [];
 
@@ -18,16 +19,18 @@ export class FornecedoresServicesService {
     private _router: Router
   ) {}
 
+  public getFornecedores(): any {
+    return this._http.get(this.BASE_PATH, {
+      params: {
+        acao: 'getFornecedores'
+      }
+    }).pipe(
+      first()
+    )
+  }
+
   public salvarFornecedor(obj: any): any {
 
-    if (this.fornecedores.length === 0) {
-      this.fornecedores.push(obj);
-      this.popUp('Fornecedor Cadastrado com sucesso !');
-      return this.fornecedores;
-    } else {
-      let i = this.fornecedores.indexOf(obj)
-      console.log(i)
-    }
   }
 
   public popUp(data: any) {

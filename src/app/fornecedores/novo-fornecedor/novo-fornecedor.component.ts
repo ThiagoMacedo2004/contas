@@ -20,26 +20,7 @@ export class NovoFornecedorComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   // myModel =
-  mask = [
-    /\d/,
-    /\d/,
-    '.',
-    /\d/,
-    /\d/,
-    /\d/,
-    '.',
-    /\d/,
-    /\d/,
-    /\d/,
-    '/',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    '-',
-    /\d/,
-    /\d/,
-  ];
+  mask = [ /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/,'-', /\d/, /\d/];
   tipoFornecedor = 'CNPJ';
 
   constructor(
@@ -89,45 +70,11 @@ export class NovoFornecedorComponent implements OnInit {
 
     if (event.value == 2) {
       //value 2 = CPF
-      this.mask = [
-        /\d/,
-        /\d/,
-        /\d/,
-        '.',
-        /\d/,
-        /\d/,
-        /\d/,
-        '.',
-        /\d/,
-        /\d/,
-        /\d/,
-        '-',
-        /\d/,
-        /\d/,
-      ];
+      this.mask = [/\d/, /\d/, /\d/,'.', /\d/, /\d/, /\d/,'.', /\d/, /\d/, /\d/,'-', /\d/,/\d/ ];
       this.tipoFornecedor = 'CPF';
     } else {
       //value 1 = CNPJ
-      this.mask = [
-        /\d/,
-        /\d/,
-        '.',
-        /\d/,
-        /\d/,
-        /\d/,
-        '.',
-        /\d/,
-        /\d/,
-        /\d/,
-        '/',
-        /\d/,
-        /\d/,
-        /\d/,
-        /\d/,
-        '-',
-        /\d/,
-        /\d/,
-      ];
+      this.mask = [ /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/,'-', /\d/, /\d/];
       this.tipoFornecedor = 'CNPJ';
     }
   }

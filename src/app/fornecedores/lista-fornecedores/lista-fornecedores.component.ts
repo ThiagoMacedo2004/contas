@@ -27,7 +27,18 @@ export class ListaFornecedoresComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.dataSource.data = this._service.fornecedores
+    this.setData()
+  }
+
+  setData() {
+    this._service.getFornecedores().subscribe(
+      (result: Fornecedores[]) => {
+        this.dataSource.data = result
+      },
+      (e: any) => {
+        this._service.popUp(e)
+      }
+    )
   }
 
   dialogNovoFornecedor() {
@@ -67,6 +78,6 @@ export class ListaFornecedoresComponent implements OnInit {
 }
 
 export interface Fornecedores {
-  tipoFornecedor: string;
-  razao: string;
+  RAZAO_SOCIAL: string;
+  CNPJ: string;
 }
