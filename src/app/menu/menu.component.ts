@@ -7,7 +7,7 @@ import { MenuToolbarComponent } from './menu-tree/menu-toolbar/menu-toolbar.comp
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [MenuTreeComponent,MenuToolbarComponent, SharedModule],
+  imports: [MenuTreeComponent, SharedModule],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })

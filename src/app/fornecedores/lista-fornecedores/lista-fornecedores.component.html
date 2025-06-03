@@ -64,7 +64,9 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
 
         <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" [attr.colspan]=displayedColumns.length>Nenhum fornecedor encontrado com o valor: <strong>"{{input.value}}"</strong></td>
+          <td class="mat-cell" [attr.colspan]=displayedColumns.length>
+            {{ (dataSource.data.length === 0) ? 'Nenhum Fornecedor encontrado !': 'Nenhum fornecedor encontrado para a pesquisa:  ' }}{{ (dataSource.data.length === 0) ? '' : input.value }}
+          </td>
         </tr>
 
       </table>

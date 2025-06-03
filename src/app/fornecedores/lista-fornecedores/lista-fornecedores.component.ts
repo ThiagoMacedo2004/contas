@@ -7,6 +7,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { NovoFornecedorComponent } from '../novo-fornecedor/novo-fornecedor.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FornecedoresServicesService } from '../fornecedores-services.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-lista-fornecedores',
@@ -35,8 +36,9 @@ export class ListaFornecedoresComponent implements OnInit {
       (result: Fornecedores[]) => {
         this.dataSource.data = result
       },
-      (e: any) => {
-        this._service.popUp(e)
+      (e: HttpErrorResponse) => {
+        console.log(e.message)
+        this._service.popUp(e.message)
       }
     )
   }

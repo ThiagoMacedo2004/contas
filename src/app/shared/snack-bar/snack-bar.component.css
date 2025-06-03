@@ -1,12 +1,13 @@
 :host {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 22px
+  /* justify-content: space-between; */
+  gap: 20px
 }
 
-span, button {
+div, button {
   font-size: 0.9rem;
+  text-align: left;
 }
 
 button {
@@ -21,5 +22,5 @@ button:hover {
 }
 
 .mat-snack-bar-container {
-  max-width: 90vw;
+  max-width: 100vw;
 }

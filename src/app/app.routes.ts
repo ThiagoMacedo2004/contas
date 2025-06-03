@@ -13,5 +13,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'fornecedores',
     loadChildren: () => import('./fornecedores/fornecedores.routes').then(r => r.FORNECEDORES_ROUTES)
+  },
+
+  {
+    path: 'itens-contrato',
+    loadChildren: () => import('./itens-contrato/itens-contrato.routes').then(r=> r.ITENS_CONTRATO_ROUTES)
   }
 ]

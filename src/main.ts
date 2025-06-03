@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FornecedoresServicesService } from './app/fornecedores/fornecedores-services.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Overlay } from '@angular/cdk/overlay';
+import { ItensService } from './app/itens-contrato/itens.service';
 
 if (environment.production) {
   enableProdMode();
@@ -22,6 +23,7 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(BrowserAnimationsModule),
     importProvidersFrom(HttpClientModule),
     FornecedoresServicesService,
+    ItensService,
     MatSnackBar,
     Overlay
   ]
