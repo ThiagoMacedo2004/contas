@@ -18,5 +18,15 @@ export const APP_ROUTES: Routes = [
   {
     path: 'itens-contrato',
     loadChildren: () => import('./itens-contrato/itens-contrato.routes').then(r=> r.ITENS_CONTRATO_ROUTES)
+  },
+
+  {
+    path: 'contas-fluxo',
+    loadComponent: () => import('./contas-fluxo/contas-fluxo.component').then(c => c.ContasFluxoComponent)
+  },
+
+  {
+    path: 'contratos',
+    loadComponent: () => import('./contratos/contratos.component').then(c => c.ContratosComponent)
   }
 ]

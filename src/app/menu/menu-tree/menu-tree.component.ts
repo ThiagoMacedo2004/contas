@@ -1,8 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map, tap } from 'rxjs';
+
 
 
 @Component({
@@ -20,12 +19,12 @@ export class MenuTreeComponent implements OnInit {
     {router: 'titulos', titulo: 'Lista de títulos', icon: 'list' },
     {router: 'fornecedores', titulo: 'Fornecedores', icon: 'source_environment' },
     {router: 'itens-contrato', titulo: 'Itens do contrato', icon: 'trolley' },
-    {router: 'contas', titulo: 'Contas fluxo', icon: 'wallet' },
-    {router: 'contrato', titulo: 'Contratos', icon: 'cases' },
+    {router: 'contas-fluxo', titulo: 'Contas fluxo', icon: 'wallet' },
+    {router: 'contratos', titulo: 'Contratos', icon: 'cases' },
   ]
 
-  constructor(private _rotaAtiva: ActivatedRoute) {
-    console.log(this._rotaAtiva.snapshot.url)
+  constructor() {
+
   }
 
   ngOnInit(): void {
