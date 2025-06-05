@@ -28,6 +28,7 @@
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef>
             <mat-checkbox class="check" color="primary" (change)="$event ? toggleAllRows() : null"
+              [disabled]="dataSource.data.length === 0 || dataSource.filteredData.length === 0"
               [checked]="selection.hasValue() && isAllSelected()"
               [indeterminate]="selection.hasValue() && !isAllSelected()">
             </mat-checkbox>
