@@ -55,7 +55,7 @@
         <ng-container matColumnDef="ACAO">
           <th mat-header-cell *matHeaderCellDef> AÇÃO </th>
           <td mat-cell *matCellDef="let fornecedor">
-            <button mat-button color="primary">
+            <button mat-button color="primary" (click)="editarFornecedor(fornecedor)">
               <mat-icon>mode_edit</mat-icon>
             </button>
           </td>

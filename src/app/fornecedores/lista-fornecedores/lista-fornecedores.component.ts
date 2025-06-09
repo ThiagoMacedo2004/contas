@@ -47,9 +47,24 @@ export class ListaFornecedoresComponent implements OnInit {
     this._dialog.open(NovoFornecedorComponent, {
       width: '50%'
     }).afterClosed().subscribe(
-      (result: Fornecedores[]) => {
+      (result) => {
         if(result) {
-          this.dataSource.data = result
+          this.setData()
+          this._service.popUp(result)
+        }
+      }
+    )
+  }
+
+  editarFornecedor(fornecedor: Fornecedores) {
+    this._dialog.open(NovoFornecedorComponent, {
+      width: '50%',
+      data: fornecedor
+    }).afterClosed().subscribe(
+      (result) => {
+        if(result) {
+          this.setData()
+          this._service.popUp(result)
         }
       }
     )

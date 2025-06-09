@@ -29,8 +29,10 @@ export class FornecedoresServicesService {
     )
   }
 
-  public salvarFornecedor(obj: any): any {
-
+  public salvarFornecedor(obj: any) {
+    return this._http.post(this.BASE_PATH, obj).pipe(
+      first()
+    )
   }
 
   public popUp(data: any) {

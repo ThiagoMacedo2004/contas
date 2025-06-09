@@ -1,27 +1,29 @@
-<h1 mat-dialog-title>Novo Fornecedor</h1>
+<h1 mat-dialog-title>{{ titulo }}</h1>
 <mat-dialog-content class="mat-typography">
-  <p>Informe os dados do novo Fornecedor</p>
-
-  <mat-radio-group color="primary" (change)=alterarTipoFornecedor($event) >
-    <mat-radio-button value=1 checked>CNPJ</mat-radio-button>
-    <mat-radio-button value=2>CPF</mat-radio-button>
-  </mat-radio-group>
+  <p *ngIf="!data">Informe os dados do novo Fornecedor</p>
 
   <form class="formulario" [formGroup]="formGroup" (ngSubmit)="salvarFornecedor()">
+    <mat-radio-group color="primary" formControlName="tipo" (change)=alterarTipoFornecedor($event)>
+      <mat-radio-button value="PJ" [checked]="data?.TIPO === 'PJ'">CNPJ</mat-radio-button>
+      <mat-radio-button value="PF" [checked]="data?.TIPO === 'PF'">CPF</mat-radio-button>
+      <mat-error *ngIf="formGroup.get('tipo')?.hasError('required')">
+        Selecione o tipo do Fornecedor.
+      </mat-error>
+    </mat-radio-group>
     <div class="inputs">
       <mat-form-field class="razao-social" appearance="fill">
         <mat-label>Razão Social</mat-label>
-        <input matInput formControlName="razao" [errorStateMatcher]="matcher">
-        <mat-error *ngIf="formGroup.get('razao')?.hasError('required')">
+        <input matInput formControlName="razaoSocial" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="formGroup.get('razaoSocial')?.hasError('required')">
           Razão social é <strong>Obrigatório</strong>
         </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>{{tipoFornecedor}}</mat-label>
-        <input matInput formControlName="tipoFornecedor" type="text" [textMask]="{mask: mask}">
-        <mat-error *ngIf="formGroup.get('tipoFornecedor')?.hasError('required')">
-          {{ tipoFornecedor }} é <strong>Obrigatório</strong>
+        <input matInput formControlName="cnpj" type="text" [textMask]="{mask: mask}">
+        <mat-error *ngIf="formGroup.get('cnpj')?.hasError('required') || formGroup.get('cnpj')?.errors?.['minLength']">
+          {{ getErrorMessage() }}
         </mat-error>
       </mat-form-field>
     </div>
