@@ -48,14 +48,17 @@
 
 
         <ng-container matColumnDef="CNPJ">
-          <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+          <th mat-header-cell *matHeaderCellDef> CNPJ/CPF </th>
           <td mat-cell *matCellDef="let fornecedor"> {{fornecedor.CNPJ}} </td>
         </ng-container>
 
         <ng-container matColumnDef="ACAO">
           <th mat-header-cell *matHeaderCellDef> AÇÃO </th>
           <td mat-cell *matCellDef="let fornecedor">
-            <button mat-button color="primary" (click)="editarFornecedor(fornecedor)">
+            <button mat-button color="primary"
+                    (click)="editarFornecedor(fornecedor)"
+                    matTooltip="Editar Fornecedor"
+                    matTooltipPosition="after">
               <mat-icon>mode_edit</mat-icon>
             </button>
           </td>
