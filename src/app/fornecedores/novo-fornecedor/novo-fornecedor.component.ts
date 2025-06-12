@@ -6,6 +6,7 @@ import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { FornecedoresServicesService } from '../fornecedores-services.service';
 import { MyErrorStateMatcher } from 'src/app/shared/erros-form';
 import { MatRadioChange } from '@angular/material/radio';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -75,15 +76,20 @@ export class NovoFornecedorComponent implements OnInit {
     this.formGroup.get('tipoFornecedor')?.reset(this.tipoFornecedor)
 
 
-    this._service.salvarFornecedor(JSON.stringify(this.formGroup.value)).subscribe(
-      (result: any) => {
+    this._service.salvarFornecedor(JSON.stringify(this.formGroup.value)).subscribe({
+      next: (result: any) => {
         if(result.sucesso) {
           this._dialogRef.close(result.sucesso)
         } else {
           this._service.popUp(result.error)
         }
+      },
+
+      error: (e: HttpErrorResponse) => {
+        // console.log(e)
+        this._service.popUp(e.message)
       }
-    )
+    })
 
   }
 
