@@ -18,7 +18,7 @@ export class ItensService {
     private _router: Router
   ) {}
 
-  public getItens() {
+  public getItens(): any {
     return this._http.get(this.BASE_PATH, {
       params: {
         acao: 'getItens'

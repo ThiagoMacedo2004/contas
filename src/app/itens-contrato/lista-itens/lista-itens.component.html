@@ -1,1 +1,82 @@
-<p>lista-itens works!</p>
+<div class="item-container">
+
+  <button class="btn-novo-item" mat-button (click)="dialogNovoItem()">
+    <mat-icon class="mat-18">add_shopping_cart</mat-icon>
+    <span>Novo Item</span>
+  </button>
+</div>
+
+<mat-card>
+
+  <div class="item-card">
+    <div>
+      <mat-icon>list</mat-icon>
+      <span>Lista de Itens</span>
+    </div>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Pesquisar Item</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
+
+  <mat-card-content>
+    <div class="tabela">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z2">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox class="check" color="primary" (change)="$event ? toggleAllRows() : null"
+              [disabled]="dataSource.data.length === 0 || dataSource.filteredData.length === 0"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="ID">
+          <th mat-header-cell *matHeaderCellDef> ID</th>
+          <td mat-cell *matCellDef="let item"> {{item.ID}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="ITEM">
+          <th mat-header-cell *matHeaderCellDef> ITEM </th>
+          <td mat-cell *matCellDef="let item"> {{item.ITEM}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="ACAO">
+          <th mat-header-cell *matHeaderCellDef> AÇÃO </th>
+          <td mat-cell *matCellDef="let item">
+            <button mat-button color="primary"
+                    (click)="editarItem(item)"
+                    matTooltip="Editar item"
+                    matTooltipPosition="after">
+              <mat-icon>mode_edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" [attr.colspan]=displayedColumns.length>
+            {{ (dataSource.data.length === 0) ? 'Nenhum item encontrado !': 'Nenhum item encontrado para a pesquisa:  ' }}{{ (dataSource.data.length === 0) ? '' : input.value }}
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+
+  </mat-card-content>
+
+</mat-card>

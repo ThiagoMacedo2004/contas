@@ -13,17 +13,10 @@ import { ListaItensComponent } from './lista-itens/lista-itens.component';
 export class ItensContratoComponent implements OnInit {
 
   constructor(
-    private _service: ItensService
   ) { }
 
   ngOnInit(): void {
-    this.getItens()
-  }
 
-  getItens() {
-    this._service.getItens().subscribe(
-      result => console.log(result)
-    )
   }
 
 }

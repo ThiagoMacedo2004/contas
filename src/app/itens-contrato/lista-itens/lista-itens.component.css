@@ -1,0 +1,64 @@
+.btn-novo-item {
+  font-size: 1rem;
+  background-color: rgba(1, 84, 160, 0.8) !important;
+  color: #FFF;
+}
+
+.btn-novo-item mat-icon {
+  margin-right: 10px;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+
+
+div.item-card {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.item-card>div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* width: 100%; */
+}
+
+div.item-card>div>span {
+  color: rgba(66, 66, 66, 0.9);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+div.item-card>div>mat-icon {
+  color: rgba(66, 66, 66, 0.9);
+  scale: 1.2;
+}
+
+div .mat-form-field {
+  width: 32%;
+  font-size: 0.8rem;
+
+}
+
+.tabela {
+  max-height: calc(100vh - 170px);
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+span.mat-checkbox-frame {
+  background-color: #FFF !important;
+
+}
