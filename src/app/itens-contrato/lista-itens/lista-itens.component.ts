@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ItensService } from '../itens.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { NovoItemComponent } from '../novo-item/novo-item.component';
 
 @Component({
   selector: 'app-lista-itens',
@@ -20,7 +22,8 @@ export class ListaItensComponent implements OnInit {
   selection = new SelectionModel<Item>(true, []);
 
   constructor(
-    private _service: ItensService
+    private _service: ItensService,
+    private _dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +42,16 @@ export class ListaItensComponent implements OnInit {
     )
   }
 
-  dialogNovoItem() {}
+  dialogNovoItem() {
+    this._dialog.open(NovoItemComponent, {
+      width: '24%'
+      }
+    ).afterClosed().subscribe(
+      (result: any) => {
+        if(result) {this.getItens()}
+      }
+    )
+  }
 
   editarItem(item: Item) {}
 

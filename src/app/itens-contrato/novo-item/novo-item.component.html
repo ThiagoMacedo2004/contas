@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Novo Item</h1>
+<mat-dialog-content class="mat-typography">
+  <form class="formulario" [formGroup]="formGroup"  (ngSubmit)="novoItem()">
+    <mat-form-field class="item" appearance="fill">
+      <mat-label>Item</mat-label>
+      <input matInput formControlName="item" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="formGroup.get('item')?.hasError('required')">
+        Item é <strong>Obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="btns" align="end">
+      <button mat-button [mat-dialog-close]>FECHAR</button>
+      <button mat-raised-button color="primary" type="submit">SALVAR</button>
+    </div>
+
+  </form>
+
+</mat-dialog-content>

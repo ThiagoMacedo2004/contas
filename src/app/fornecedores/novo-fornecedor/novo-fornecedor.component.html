@@ -12,7 +12,7 @@
     </mat-radio-group>
     <div class="inputs">
       <mat-form-field class="razao-social" appearance="fill">
-        <mat-label>Razão Social</mat-label>
+        <mat-label>{{ (tipoFornecedor === 'CNPJ') ? 'Razão Social' : 'Nome' }}</mat-label>
         <input matInput formControlName="razaoSocial" [errorStateMatcher]="matcher">
         <mat-error *ngIf="formGroup.get('razaoSocial')?.hasError('required')">
           Razão social é <strong>Obrigatório</strong>
