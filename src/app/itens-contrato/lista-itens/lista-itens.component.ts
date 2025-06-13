@@ -37,7 +37,7 @@ export class ListaItensComponent implements OnInit {
       },
 
       (e: HttpErrorResponse) => {
-        return e.error
+        this._service.popUp(e.message)
       }
     )
   }

@@ -36,7 +36,7 @@ export class ItensService {
 
   public popUp(data: any) {
     this._msg.openFromComponent(SnackBarComponent, {
-      duration: 40000,
+      duration: 4000,
       verticalPosition: 'top',
       data: data,
     });

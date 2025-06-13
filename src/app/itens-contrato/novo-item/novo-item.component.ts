@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, UntypedFormGroup, Validators } from '@angular/f
 import { MyErrorStateMatcher } from 'src/app/shared/erros-form';
 import { ItensService } from '../itens.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-novo-item',
@@ -53,6 +54,10 @@ export class NovoItemComponent implements OnInit {
         } else {
           this._service.popUp(result.error)
         }
+      },
+
+      (e: HttpErrorResponse) => {
+        this._service.popUp(`Erro ao salvar o Item: ${e.message}`)
       }
     )
 
